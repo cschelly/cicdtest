@@ -14,10 +14,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build
-      commands: bundle exec xcversion select 11.6
-      run: set -o pipefail && xcodebuild clean -scheme CICDTest build-for-testing -allowProvisioningUpdates
+      run: bundle exec xcversion select 11.6 && set -o pipefail && xcodebuild clean -scheme CICDTest build-for-testing -allowProvisioningUpdates
       #swift build -v
     - name: Run tests
-      commands: bundle exec xcversion select 11.6
-      run: set -o pipefail && xcodebuild test-without-building -xctestrun $(find . -type f -name "*.xctestrun") -destination "platform=iOS Simulator,name=$DEVICE" -enableCodeCoverage YES
+      run: bundle exec xcversion select 11.6 && set -o pipefail && xcodebuild test-without-building -xctestrun $(find . -type f -name "*.xctestrun") -destination "platform=iOS Simulator,name=$DEVICE" -enableCodeCoverage YES
       #swift test -v
