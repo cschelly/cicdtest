@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build
-      run: set -o pipefail && /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild clean -scheme CICDTest build-for-testing -allowProvisioningUpdates
+      run: xcode-select -s /Applications/Xcode.app && set -o pipefail && /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild clean -scheme CICDTest build-for-testing -allowProvisioningUpdates
       #swift build -v
     - name: Run tests
       run: set -o pipefail && /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun $(find . -type f -name "*.xctestrun") -destination "platform=iOS Simulator,name=$DEVICE" -enableCodeCoverage YES
