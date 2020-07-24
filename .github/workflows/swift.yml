@@ -14,6 +14,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build
-      run: swift build -v
+      run: cd ../.. && xcodebuild -project CICDTest.xcodeproj -scheme "CICDTest" -destination "platform=iOS Simulator,name=iPhone 11 Pro Max"
     - name: Run tests
-      run: swift test -v
+      run: cd ../.. && xcodebuild test -project CICDTest.xcodeproj -scheme "CICDTestTests" -destination "platform=iOS Simulator,name=iPhone 11 Pro Max"
