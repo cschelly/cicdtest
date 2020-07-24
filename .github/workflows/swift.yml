@@ -27,4 +27,4 @@ jobs:
       #- name: Script permissions
        # run: chmod +x dummy_bash.sh
       - name: Build frameworks
-        run: chmod +x dummy_bash.sh && ./dummy_bash.sh
+        run: cd ../.. && chmod +x dummy_bash.sh && ./dummy_bash.sh
