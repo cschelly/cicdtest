@@ -24,7 +24,7 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - name: Script permissions
-        run: chmod +x dummy-bash.sh
+      #- name: Script permissions
+       # run: chmod +x dummy_bash.sh
       - name: Build frameworks
-        run: ./dummy-bash.sh
+        run: chmod +x dummy_bash.sh && ./dummy_bash.sh
