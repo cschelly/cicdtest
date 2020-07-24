@@ -24,5 +24,7 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - name: Build xcframeworks
-        run: chmod +x dummy-bash.sh && ./dummy-bash.sh
+      - name: Script permissions
+        run: chmod +x dummy-bash.sh
+        - name: Build frameworks
+        run: ./dummy-bash.sh
