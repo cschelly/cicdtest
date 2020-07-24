@@ -12,7 +12,8 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v2
     - name: Build
       run: xcodebuild -project CICDTest.xcodeproj -scheme "CICDTest" -destination "platform=iOS Simulator,name=iPhone 11 Pro Max"
     - name: Run tests
@@ -24,7 +25,9 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      #- name: Script permissions
-       # run: chmod +x dummy_bash.sh
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Script permissions
+        run: chmod +x dummy_bash.sh
       - name: Build frameworks
-        run: cd ../.. && chmod +x dummy_bash.sh && ./dummy_bash.sh
+        run: ./dummy_bash.sh
