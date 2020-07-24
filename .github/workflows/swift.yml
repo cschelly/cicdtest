@@ -17,3 +17,12 @@ jobs:
       run: xcodebuild -project CICDTest.xcodeproj -scheme "CICDTest" -destination "platform=iOS Simulator,name=iPhone 11 Pro Max"
     - name: Run tests
       run: xcodebuild test -project CICDTest.xcodeproj -scheme "CICDTestTests" -destination "platform=iOS Simulator,name=iPhone 11 Pro Max"
+
+  build-frameworks:
+
+    needs: build
+    runs-on: macos-latest
+
+    steps:
+      - name: Build xcframeworks
+        run: chmod +x dummy-bash.sh && ./dummy-bash.sh
