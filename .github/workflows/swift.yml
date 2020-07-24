@@ -14,10 +14,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build
-      run: 
-        #sudo xcode-select --switch /Applications/Xcode.app && set -o pipefail && xcodebuild clean -scheme CICDTest build-for-testing -allowProvisioningUpdates
-      swift build -v
+      run: swift build -v
     - name: Run tests
-      run: 
-        #bundle exec xcversion select 11.6 && set -o pipefail && xcodebuild test-without-building -xctestrun $(find . -type f -name "*.xctestrun") -destination "platform=iOS Simulator,name=$DEVICE" -enableCodeCoverage YES
-      swift test -v
+      run: swift test -v
