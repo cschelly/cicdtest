@@ -27,7 +27,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Script permissions
+      - name: Xcframeworks Script permissions
         run: chmod +x dummy_bash.sh
-      - name: Build frameworks
+      - name: Create xcframeworks
         run: ./dummy_bash.sh
+
+  build-veracode:
+  
+    needs: build
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Veracode Script permissions
+        run: chmod +x veracode.sh
+      - name: Build Veracode Package
+        run: ./veracode.sh      
